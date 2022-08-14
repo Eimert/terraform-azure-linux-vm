@@ -1,6 +1,6 @@
 ## terraform-azure-linux-vm
 
-Azure Linux Virtual Machine (VM) with Cloud-Init. Ubuntu 16.04-LTS. Made for the [Provision Infrastructure with Cloud-Init](https://learn.hashicorp.com/tutorials/terraform/cloud-init) tutorial. Azure version.
+Azure Linux Virtual Machine (VM) with Cloud-Init. Ubuntu 16.04-LTS. Made for the [Provision Infrastructure with Cloud-Init](https://learn.hashicorp.com/tutorials/terraform/cloud-init) tutorial. Azure version. [This module is also on Terraform Registry](https://registry.terraform.io/modules/Eimert/linux-vm/azure/1.0.0).
 
 ## Module usage example
 
