@@ -27,7 +27,7 @@ terraform {
   required_providers {
     azurerm = {
       source = "hashicorp/azurerm"
-      version = "3.17.0"
+      version = "~>3.21.1"
     }
   }
 }
@@ -38,10 +38,19 @@ provider "azurerm" {
 }
 
 module "vm" {
-  source      = "github.com/Eimert/terraform-azure-linux-vm"
+  source      = "github.com/Eimert/terraform-azure-linux-vm?ref=main"
   location    = "westeurope"
+  rg_name     = "rg-instance"
   vm_size     = "Standard_B1s"
   cloud_init_script_location = "./scripts/add-ssh-web-app.yaml"
+}
+
+output "admin_username" {
+  value = module.vm.admin_username
+}
+
+output "public_ip" {
+  value = module.vm.public_ip
 }
 ```
 Copy the `add-ssh-web-app.yaml` file locally and set the `cloud_init_script_location` accordingly in main.tf.
@@ -51,6 +60,9 @@ For the rest; follow the Hashicorp Learn tutorial, see [Add your public ssh key 
 
 ```bash
 terraform init
-terraform apply
-ssh terraform@$(terraform output -raw public_ip)
+terraform apply -auto-approve
+# ssh using private key authentication getting the username and VM ip using terraform output
+ssh $(terraform output -raw admin_username)@$(terraform output -raw public_ip)
+# default admin_username: terraform
+terraform destroy -auto-approve
 ```
