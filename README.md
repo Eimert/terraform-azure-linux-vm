@@ -4,9 +4,11 @@ Azure Linux Virtual Machine (VM) with Cloud-Init. Ubuntu 16.04-LTS. Made for the
 
 ## Module usage example
 
-Export Azure subscription / service principal credentials as environment vars:
+- For [Azure CLI authentication](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/azure_cli) login with `az cli` and set and export the ARM_TENANT_ID env var.
+
+- For service principal authentication: export Azure subscription and service principal details as environment vars:
 ```bash
-# client_id = appId of service principal or ms graph user id
+# client_id = appId of service principal
 # client_secret = service principal secret
 # tenant_id = directory id
 export ARM_CLIENT_ID=
