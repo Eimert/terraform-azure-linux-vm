@@ -6,7 +6,7 @@ Azure Linux Virtual Machine (VM) with Cloud-Init. Ubuntu 16.04-LTS. Made for the
 
 Export Azure subscription / service principal credentials as environment vars:
 ```bash
-# client_id = appId of service principal
+# client_id = appId of service principal or ms graph user id
 # client_secret = service principal secret
 # tenant_id = directory id
 export ARM_CLIENT_ID=
